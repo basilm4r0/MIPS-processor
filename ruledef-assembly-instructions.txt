@@ -1,0 +1,69 @@
+#ruledef
+{   
+	;		R TYPE
+	AND r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00000000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	ANDEQ r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01000000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	ANDNE r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10000000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	
+	CAS r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00000010 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	CASEQ r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01000010 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	CASNE r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10000010 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	
+	LWS r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00000100 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	LWSEQ r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01000100 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	LWSNE r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10000100 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	
+	ADD r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00000110 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	ADDEQ r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01000110 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	ADDNE r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10000110 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	
+	SUB r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00001000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	SUBEQ r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01001000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	SUBNE r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10001000 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	SUBSF r{reg_num1}, r{reg_num2},r{reg_num3} => 0b00001001 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	SUBEQSF r{reg_num1}, r{reg_num2},r{reg_num3} => 0b01001001 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000 
+	SUBNESF r{reg_num1}, r{reg_num2},r{reg_num3} => 0b10001001 @ reg_num1`3 @ reg_num2`3 @ reg_num3`3 @ 0b0000000
+	
+	CMP r{reg_num1}, r{reg_num2} => 0b00001010 @ 0b000 @ reg_num1`3 @ reg_num2`3 @ 0b0000000
+	CMPEQ r{reg_num1}, r{reg_num2} => 0b01001010 @ 0b000 @ reg_num1`3 @ reg_num2`3  @ 0b0000000
+	CMPNE r{reg_num1}, r{reg_num2} => 0b10001010 @ 0b000 @ reg_num1`3 @ reg_num2`3  @ 0b0000000
+	
+	JR r{reg_num1} => 0b00001100 @ reg_num1`3 @ 0b0000000000000
+	JREQ r{reg_num1} => 0b01001100 @ reg_num1`3 @ 0b0000000000000
+	JRNE r{reg_num1} => 0b10001100 @ reg_num1`3 @ 0b0000000000000
+	
+	;		I TYPE  
+	ANDI r{reg_num1}, r{reg_num2},{imm} => 0b00001110 @ reg_num1`3 @ reg_num2`3 @ imm`10 
+	ANDIEQ r{reg_num1}, r{reg_num2},{imm} => 0b01001110 @ reg_num1`3 @ reg_num2`3 @ imm`10 
+	ANDINE r{reg_num1}, r{reg_num2},{imm} => 0b10001110 @ reg_num1`3 @ reg_num2`3 @ imm`10 
+	
+	ADDI r{reg_num1}, r{reg_num2},{imm} => 0b00010000 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	ADDIEQ r{reg_num1}, r{reg_num2},{imm} => 0b01010000 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	ADDINE r{reg_num1}, r{reg_num2},{imm} => 0b10010000 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	
+	LW r{reg_num1}, r{reg_num2},{imm} => 0b00010010 @ reg_num1`3 @ reg_num2`3 @ imm`10 
+	LWEQ r{reg_num1}, r{reg_num2},{imm} => 0b01010010 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	LWNE r{reg_num1}, r{reg_num2},{imm} => 0b10010010 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	
+	SW r{reg_num1}, r{reg_num2},{imm} => 0b00010100 @ reg_num1`3 @ reg_num2`3 @ imm`10 
+	SWEQ r{reg_num1}, r{reg_num2},{imm} => 0b01010100 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	SWNE r{reg_num1}, r{reg_num2},{imm} => 0b10010100 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	
+	BEQ r{reg_num1}, r{reg_num2},{imm} => 0b00010110 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	BEQEQ r{reg_num1}, r{reg_num2},{imm} => 0b01010110 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	BEQNE r{reg_num1}, r{reg_num2},{imm} => 0b10010110 @ reg_num1`3 @ reg_num2`3 @ imm`10
+	
+	;		J TYPE
+	J {imm} => 0b0001100 @ imm`17
+	JEQ {imm} => 0b0101100 @ imm`17
+	JNE {imm} => 0b1001100 @ imm`17
+	
+	JAL {imm} => 0b0001101 @ imm`17
+	JALEQ {imm} => 0b0101101 @ imm`17
+	JALNE {imm} => 0b1001101 @ imm`17
+	
+	LUI {imm} => 0b0001110 @ imm`17
+	LUIEQ {imm} => 0b0101110 @ imm`17
+	LUINE {imm} => 0b1001110 @ imm`17
+	
+}
